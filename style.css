@@ -1,0 +1,100 @@
+
+/* Mengatur tampilan seluruh halaman */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Mengatur judul */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* Mengatur form */
+form {
+    background-color: white;
+    width: 400px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mengatur setiap bagian input */
+form p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Mengatur input, select, dan textarea */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Mengatur tinggi textarea */
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+/* Efek ketika input diklik */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Mengatur tombol daftar */
+button {
+    width: 100%;
+    padding: 11px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Efek ketika mouse diarahkan ke tombol */
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Mengatur pesan dan kesalahan */
+body > p {
+    text-align: center;
+}
+
+body > div {
+    width: 400px;
+    margin: 10px auto;
+    background-color: #ffecec;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Tampilan untuk layar HP */
+@media (max-width: 500px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        width: auto;
+    }
+
+    body > div {
+        width: auto;
+    }
+}

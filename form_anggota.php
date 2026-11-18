@@ -22,6 +22,7 @@ function e($data) {
 <head>
     <meta charset="UTF-8">
     <title>Form Pendaftaran Anggota</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
