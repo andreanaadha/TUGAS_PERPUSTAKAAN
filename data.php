@@ -1,3 +1,4 @@
+
 <?php
 require_once "koneksi.php";
 
@@ -13,21 +14,110 @@ $hasil = mysqli_query($koneksi, $sql);
 $jumlah = mysqli_num_rows($hasil);
 
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Data Anggota Perpustakaan</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #eaf4fc;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #2ecc71;
+            color: white;
+            padding: 7px 12px;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #27ae60;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 7px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .container {
+            overflow-x: auto;
+        }
+    </style>
 </head>
+
 <body>
-    <table>
-        <tr>
-            <th>No Anggota</th><th>Nama Lengkap</th><th>Email</th><th>Nomor Hp</th>
-            <th>Jenis Anggota</th><th>Alamat</th><th>Aksi</th>
-        </tr>
-        <?php $no = 1; while ($baris = mysqli_fetch_assoc($hasil)) { ?>
-        <tr>
+
+    <h2>Data Anggota Perpustakaan</h2>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>No</th>
+                <th>No Anggota</th>
+                <th>Nama Lengkap</th>
+                <th>Email</th>
+                <th>Nomor HP</th>
+                <th>Jenis Anggota</th>
+                <th>Alamat</th>
+                <th>Aksi</th>
+            </tr>
+
+            <?php $no = 1; while ($baris = mysqli_fetch_assoc($hasil)) { ?>
+            <tr>
                 <td><?php echo $no++; ?></td>
                 <td><?php echo htmlspecialchars($baris['no_anggota']); ?></td>
                 <td><?php echo htmlspecialchars($baris['nama_lengkap']); ?></td>
@@ -37,14 +127,21 @@ $jumlah = mysqli_num_rows($hasil);
                 <td><?php echo htmlspecialchars($baris['alamat']); ?></td>
                 <td>
                     <a href="detail.php?id=<?php echo (int) $baris['id']; ?>">Detail</a>
+
                     <form class="inline" action="hapus.php" method="post"
                     onsubmit="return confirm('YAKIN INGIN MENGHAPUS DATA INI?');">
-                    <input type="hidden" name="id" value="<?php echo (int) $baris['id']; ?>">
-                    <button type="submit">Hapus</button>
+
+                        <input type="hidden" name="id"
+                        value="<?php echo (int) $baris['id']; ?>">
+
+                        <button type="submit">Hapus</button>
                     </form>
                 </td>
             </tr>
-        <?php } ?>
-    </table>
+            <?php } ?>
+
+        </table>
+    </div>
+
 </body>
 </html>
