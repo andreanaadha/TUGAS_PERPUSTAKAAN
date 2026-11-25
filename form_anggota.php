@@ -46,7 +46,7 @@ function e($data) {
 <?php endif; ?>
 
 <form action="proses_anggota.php" method="POST">
-
+    <a href="data.php" METHOD="POST">Lihat Data Anggota</a>
     <p>
         Nomor Anggota:<br>
         <input type="text" name="no_anggota"

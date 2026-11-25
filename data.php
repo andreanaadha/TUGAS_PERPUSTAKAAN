@@ -1,4 +1,8 @@
-
+<!--
+NIM : 250202035
+NAMA : ANDREANA ADHA WARDANA
+KELAS : TI-1B 
+-->
 <?php
 require_once "koneksi.php";
 
@@ -102,6 +106,7 @@ $jumlah = mysqli_num_rows($hasil);
 <body>
 
     <h2>Data Anggota Perpustakaan</h2>
+    <a href="form_anggota.php" METHOD="POST">Tambah Anggota</a>
 
     <div class="container">
         <table>
@@ -126,7 +131,7 @@ $jumlah = mysqli_num_rows($hasil);
                 <td><?php echo htmlspecialchars($baris['jenis_anggota']); ?></td>
                 <td><?php echo htmlspecialchars($baris['alamat']); ?></td>
                 <td>
-                    <a href="detail.php?id=<?php echo (int) $baris['id']; ?>">Detail</a>
+                    <a href="edit.php?id=<?php echo (int) $baris['id']; ?>">Edit</a>
 
                     <form class="inline" action="hapus.php" method="post"
                     onsubmit="return confirm('YAKIN INGIN MENGHAPUS DATA INI?');">
@@ -135,6 +140,7 @@ $jumlah = mysqli_num_rows($hasil);
                         value="<?php echo (int) $baris['id']; ?>">
 
                         <button type="submit">Hapus</button>
+
                     </form>
                 </td>
             </tr>
